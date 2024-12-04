@@ -1,0 +1,851 @@
+[
+    {
+        "id": "0bda928f5870fe31",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "64ee36542fa458ea",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c9db46d895e9f452",
+        "type": "tab",
+        "label": "Flow 3",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0d89bdc714438385",
+        "type": "ui_base",
+        "theme": {
+            "name": "theme-light",
+            "lightTheme": {
+                "default": "#0094CE",
+                "baseColor": "#0094CE",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": true,
+                "reset": false
+            },
+            "darkTheme": {
+                "default": "#097479",
+                "baseColor": "#097479",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif",
+                "edited": false
+            },
+            "customTheme": {
+                "name": "Untitled Theme 1",
+                "default": "#4B7930",
+                "baseColor": "#4B7930",
+                "baseFont": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+            },
+            "themeState": {
+                "base-color": {
+                    "default": "#0094CE",
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-titlebar-backgroundColor": {
+                    "value": "#0094CE",
+                    "edited": false
+                },
+                "page-backgroundColor": {
+                    "value": "#fafafa",
+                    "edited": false
+                },
+                "page-sidebar-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-textColor": {
+                    "value": "#1bbfff",
+                    "edited": false
+                },
+                "group-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "group-backgroundColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "widget-textColor": {
+                    "value": "#111111",
+                    "edited": false
+                },
+                "widget-backgroundColor": {
+                    "value": "#0094ce",
+                    "edited": false
+                },
+                "widget-borderColor": {
+                    "value": "#ffffff",
+                    "edited": false
+                },
+                "base-font": {
+                    "value": "-apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Oxygen-Sans,Ubuntu,Cantarell,Helvetica Neue,sans-serif"
+                }
+            },
+            "angularTheme": {
+                "primary": "indigo",
+                "accents": "blue",
+                "warn": "red",
+                "background": "grey",
+                "palette": "light"
+            }
+        },
+        "site": {
+            "name": "Node-RED Dashboard",
+            "hideToolbar": "false",
+            "allowSwipe": "false",
+            "lockMenu": "false",
+            "allowTempTheme": "true",
+            "dateFormat": "DD/MM/YYYY",
+            "sizes": {
+                "sx": 48,
+                "sy": 48,
+                "gx": 6,
+                "gy": 6,
+                "cx": 6,
+                "cy": 6,
+                "px": 0,
+                "py": 0
+            }
+        }
+    },
+    {
+        "id": "6cded3d584342e31",
+        "type": "ui_tab",
+        "name": "Home",
+        "icon": "dashboard",
+        "order": 1,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "ee7c47da5878f0a2",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "6cded3d584342e31",
+        "order": 2,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "6217fa607d98f662",
+        "type": "ui_tab",
+        "name": "Control",
+        "icon": "dashboard",
+        "order": 2,
+        "disabled": false,
+        "hidden": false
+    },
+    {
+        "id": "c538bc9a9fae688f",
+        "type": "ui_group",
+        "name": "Button",
+        "tab": "6217fa607d98f662",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "9390f05ccaf6c03d",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "1.tcp.ap.ngrok.io",
+        "port": "25580",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "7bb9ee1340704833",
+        "type": "firebase admin",
+        "name": "Database"
+    },
+    {
+        "id": "cd21216dcf1b107a",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "6cded3d584342e31",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "a6d174fbd907bce2",
+        "type": "inject",
+        "z": "0bda928f5870fe31",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 230,
+        "y": 280,
+        "wires": [
+            [
+                "c09605badf9e9e97"
+            ]
+        ]
+    },
+    {
+        "id": "c09605badf9e9e97",
+        "type": "function",
+        "z": "0bda928f5870fe31",
+        "name": "function 1",
+        "func": "const timestamp = msg.payload;\nconst period = 10;\nmsg.payload = Math.sin(((timestamp / 1000) * 2 * Math.PI) / period);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 280,
+        "wires": [
+            [
+                "f413f92f42eddb40",
+                "5e848e0ebf4f02dd"
+            ]
+        ]
+    },
+    {
+        "id": "f413f92f42eddb40",
+        "type": "ui_chart",
+        "z": "0bda928f5870fe31",
+        "d": true,
+        "name": "",
+        "group": "ee7c47da5878f0a2",
+        "order": 0,
+        "width": "0",
+        "height": "0",
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "cubic",
+        "nodata": "",
+        "dot": false,
+        "ymin": "-2",
+        "ymax": "10",
+        "removeOlder": "20",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#a4ba36",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 630,
+        "y": 280,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "5e848e0ebf4f02dd",
+        "type": "ui_gauge",
+        "z": "0bda928f5870fe31",
+        "d": true,
+        "name": "",
+        "group": "ee7c47da5878f0a2",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": "-1",
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 630,
+        "y": 380,
+        "wires": []
+    },
+    {
+        "id": "a3af0880e16ccaf5",
+        "type": "comment",
+        "z": "0bda928f5870fe31",
+        "name": "Display",
+        "info": "",
+        "x": 190,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "0f41ac58ce0607b0",
+        "type": "comment",
+        "z": "0bda928f5870fe31",
+        "name": "Control",
+        "info": "",
+        "x": 170,
+        "y": 480,
+        "wires": []
+    },
+    {
+        "id": "67ee0443c261fdc8",
+        "type": "ui_button",
+        "z": "0bda928f5870fe31",
+        "name": "",
+        "group": "c538bc9a9fae688f",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Start",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "#16e77e",
+        "className": "",
+        "icon": "",
+        "payload": "1",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 230,
+        "y": 540,
+        "wires": [
+            [
+                "f91b40eee6cc840e"
+            ]
+        ]
+    },
+    {
+        "id": "b4c57bdedcedef46",
+        "type": "ui_button",
+        "z": "0bda928f5870fe31",
+        "name": "",
+        "group": "c538bc9a9fae688f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Stop",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "0",
+        "payloadType": "num",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 230,
+        "y": 600,
+        "wires": [
+            [
+                "f91b40eee6cc840e"
+            ]
+        ]
+    },
+    {
+        "id": "f91b40eee6cc840e",
+        "type": "mqtt out",
+        "z": "0bda928f5870fe31",
+        "d": true,
+        "name": "",
+        "topic": "test/dashboard",
+        "qos": "2",
+        "retain": "true",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9390f05ccaf6c03d",
+        "x": 460,
+        "y": 560,
+        "wires": []
+    },
+    {
+        "id": "3d6c551f7424acee",
+        "type": "mqtt in",
+        "z": "0bda928f5870fe31",
+        "d": true,
+        "name": "",
+        "topic": "test/dashboard",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9390f05ccaf6c03d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 260,
+        "y": 740,
+        "wires": [
+            [
+                "cc6874f4d0ec30e2"
+            ]
+        ]
+    },
+    {
+        "id": "cc6874f4d0ec30e2",
+        "type": "template",
+        "z": "0bda928f5870fe31",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "The system is set to {{payload}} !",
+        "output": "str",
+        "x": 460,
+        "y": 740,
+        "wires": [
+            [
+                "356cea66957517fa"
+            ]
+        ]
+    },
+    {
+        "id": "356cea66957517fa",
+        "type": "ui_text",
+        "z": "0bda928f5870fe31",
+        "group": "c538bc9a9fae688f",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "text",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 630,
+        "y": 740,
+        "wires": []
+    },
+    {
+        "id": "bf551791e18026b5",
+        "type": "function",
+        "z": "64ee36542fa458ea",
+        "name": "function 2",
+        "func": "const timestamp = new Date().getTime();\nconst value = msg.payload;\nmsg.payload = {\n  value: value,\n  timestamp: timestamp,\n};\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 480,
+        "y": 160,
+        "wires": [
+            [
+                "6bf6380cf7af5307"
+            ]
+        ]
+    },
+    {
+        "id": "6bf6380cf7af5307",
+        "type": "Firestore out",
+        "z": "64ee36542fa458ea",
+        "d": true,
+        "name": "",
+        "collection": "data",
+        "document": "",
+        "operation": "add",
+        "admin": "7bb9ee1340704833",
+        "eject": false,
+        "x": 680,
+        "y": 160,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "bc3fc0ee02db3c8d",
+        "type": "inject",
+        "z": "64ee36542fa458ea",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "50",
+        "payloadType": "num",
+        "x": 270,
+        "y": 160,
+        "wires": [
+            [
+                "bf551791e18026b5"
+            ]
+        ]
+    },
+    {
+        "id": "e2b169f0b138d5a7",
+        "type": "comment",
+        "z": "64ee36542fa458ea",
+        "name": "Write to DB",
+        "info": "",
+        "x": 270,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "66365a751648fd38",
+        "type": "comment",
+        "z": "64ee36542fa458ea",
+        "name": "Read from DB",
+        "info": "",
+        "x": 270,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "3e6ab40be0fedd68",
+        "type": "Firestore in",
+        "z": "64ee36542fa458ea",
+        "d": true,
+        "name": "",
+        "collection": "data",
+        "group": false,
+        "document": "",
+        "realtime": true,
+        "query": [
+            {
+                "orderBy": {
+                    "field": "timestamp",
+                    "direction": "desc"
+                }
+            },
+            {
+                "limit": 10
+            }
+        ],
+        "admin": "7bb9ee1340704833",
+        "snapHandler": "",
+        "eject": false,
+        "x": 250,
+        "y": 320,
+        "wires": [
+            [
+                "f45c9c30d48a1dd2"
+            ]
+        ]
+    },
+    {
+        "id": "ead9a5a670b999bd",
+        "type": "debug",
+        "z": "64ee36542fa458ea",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "f45c9c30d48a1dd2",
+        "type": "function",
+        "z": "64ee36542fa458ea",
+        "name": "function 3",
+        "func": "let payload = msg.payload;\nlet textOut = \"\";\n\nfor (const [key, value] of Object.entries(payload)) {\n  const _date = value?.timestamp ? new Date(value.timestamp) : new Date();\n  let reading = value.value;\n  if (parseFloat(value.value)) {\n    reading = parseFloat(value.value).toFixed(2);\n  }\n  const datestring = _date.toLocaleDateString();\n  const timestring = _date.toLocaleTimeString();\n  textOut += `📆${datestring} ⏰${timestring} ✏${reading}<br/>`;\n}\n\nmsg.payload = textOut;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 320,
+        "wires": [
+            [
+                "ead9a5a670b999bd",
+                "a841c8e27be13dfd"
+            ]
+        ]
+    },
+    {
+        "id": "a841c8e27be13dfd",
+        "type": "ui_text",
+        "z": "64ee36542fa458ea",
+        "d": true,
+        "group": "ee7c47da5878f0a2",
+        "order": 2,
+        "width": "6",
+        "height": "7",
+        "name": "",
+        "label": "Data from Database",
+        "format": "{{msg.payload}}",
+        "layout": "col-center",
+        "className": "",
+        "style": true,
+        "font": "Courier,monospace",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 660,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "b3f862bba84eff0b",
+        "type": "inject",
+        "z": "c9db46d895e9f452",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 120,
+        "wires": [
+            [
+                "0c0b8eef7ecf68fe",
+                "4b8ac092368134bf"
+            ]
+        ]
+    },
+    {
+        "id": "0c0b8eef7ecf68fe",
+        "type": "function",
+        "z": "c9db46d895e9f452",
+        "d": true,
+        "name": "Random Values",
+        "func": "// Change here\nconst min_value = 0;\nconst max_value = 100;\n// Don't change below\nconst value = Math.random() * (max_value - min_value) + min_value;\nconst value_rounded = Math.round(value * 100) / 100;\nmsg.payload = value_rounded;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 420,
+        "y": 120,
+        "wires": [
+            [
+                "adf64bce371d2da8"
+            ]
+        ]
+    },
+    {
+        "id": "adf64bce371d2da8",
+        "type": "mqtt out",
+        "z": "c9db46d895e9f452",
+        "d": true,
+        "name": "",
+        "topic": "test/fakesensor",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "9390f05ccaf6c03d",
+        "x": 740,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "04b02fa18124783e",
+        "type": "comment",
+        "z": "c9db46d895e9f452",
+        "name": "Prototype Sensor",
+        "info": "",
+        "x": 160,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "51a8b9db54ca629c",
+        "type": "mqtt in",
+        "z": "c9db46d895e9f452",
+        "d": true,
+        "name": "",
+        "topic": "test/fakesensor",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "9390f05ccaf6c03d",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 160,
+        "y": 300,
+        "wires": [
+            [
+                "9275bd1c859a18d4",
+                "08c114a0dc9ac6f0"
+            ]
+        ]
+    },
+    {
+        "id": "9275bd1c859a18d4",
+        "type": "debug",
+        "z": "c9db46d895e9f452",
+        "d": true,
+        "name": "debug 2",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "08c114a0dc9ac6f0",
+        "type": "ui_chart",
+        "z": "c9db46d895e9f452",
+        "name": "",
+        "group": "cd21216dcf1b107a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "1",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 370,
+        "y": 360,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "4b8ac092368134bf",
+        "type": "function",
+        "z": "c9db46d895e9f452",
+        "name": "function 4",
+        "func": "const timestamp = msg.payload;\nconst period = 10;\nmsg.payload = Math.sin(((timestamp / 1000) * 2 * Math.PI) / period);\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 400,
+        "y": 200,
+        "wires": [
+            [
+                "adf64bce371d2da8"
+            ]
+        ]
+    }
+]

@@ -2,7 +2,7 @@
     {
         "id": "0bda928f5870fe31",
         "type": "tab",
-        "label": "Flow 1",
+        "label": "Dashboard",
         "disabled": false,
         "info": "",
         "env": []
@@ -10,7 +10,7 @@
     {
         "id": "64ee36542fa458ea",
         "type": "tab",
-        "label": "Flow 2",
+        "label": "DB",
         "disabled": false,
         "info": "",
         "env": []
@@ -35,6 +35,30 @@
         "id": "236bb63f8166146c",
         "type": "tab",
         "label": "MQTT",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c87b5ca7fe85273f",
+        "type": "tab",
+        "label": "Test Context",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "c314a73a5e96f198",
+        "type": "tab",
+        "label": "Context",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "0222bdc0e7912998",
+        "type": "tab",
+        "label": "Flow 2",
         "disabled": false,
         "info": "",
         "env": []
@@ -141,7 +165,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "order": 1,
+        "order": 2,
         "disabled": false,
         "hidden": false
     },
@@ -161,7 +185,7 @@
         "type": "ui_tab",
         "name": "Control",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -251,6 +275,22 @@
         "willMsg": {},
         "userProps": "",
         "sessionExpiry": ""
+    },
+    {
+        "id": "81942a611e0213fe",
+        "type": "ui_tab",
+        "name": "Tab 3",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "6b0a127f7637ab3c",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "81942a611e0213fe",
+        "order": 1,
+        "disp": true,
+        "width": 6
     },
     {
         "id": "a6d174fbd907bce2",
@@ -1360,6 +1400,7 @@
         "id": "59469e9eeb54d109",
         "type": "mqtt in",
         "z": "236bb63f8166146c",
+        "d": true,
         "name": "",
         "topic": "test/main",
         "qos": "2",
@@ -1397,6 +1438,7 @@
         "id": "3b58b44512bcc4ef",
         "type": "mqtt out",
         "z": "236bb63f8166146c",
+        "d": true,
         "name": "",
         "topic": "test/main",
         "qos": "2",
@@ -1438,6 +1480,486 @@
             [
                 "3b58b44512bcc4ef"
             ]
+        ]
+    },
+    {
+        "id": "d2726aea3cce7879",
+        "type": "inject",
+        "z": "c87b5ca7fe85273f",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 180,
+        "y": 160,
+        "wires": [
+            [
+                "4a1777f584e85e38"
+            ]
+        ]
+    },
+    {
+        "id": "4a1777f584e85e38",
+        "type": "function",
+        "z": "c87b5ca7fe85273f",
+        "name": "function 5",
+        "func": "const value = flow.get(\"value\") ?? 1;\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 160,
+        "wires": [
+            [
+                "e15e2c7e1eedfaf3"
+            ]
+        ]
+    },
+    {
+        "id": "e15e2c7e1eedfaf3",
+        "type": "debug",
+        "z": "c87b5ca7fe85273f",
+        "name": "debug 5",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 580,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "f0fd72273a812047",
+        "type": "inject",
+        "z": "c314a73a5e96f198",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 190,
+        "y": 120,
+        "wires": [
+            [
+                "5f48c8f6f2147d52"
+            ]
+        ]
+    },
+    {
+        "id": "5f48c8f6f2147d52",
+        "type": "function",
+        "z": "c314a73a5e96f198",
+        "name": "function 6",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 120,
+        "wires": [
+            [
+                "44dcd7e42975693a",
+                "3a9f88b583a3b541",
+                "dd5358f016d2c569"
+            ]
+        ]
+    },
+    {
+        "id": "44dcd7e42975693a",
+        "type": "change",
+        "z": "c314a73a5e96f198",
+        "d": true,
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "value",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 120,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "e62da2d119ea40d2",
+        "type": "inject",
+        "z": "c314a73a5e96f198",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "c2e874cfb0643d5b"
+            ]
+        ]
+    },
+    {
+        "id": "d56fba44b2872846",
+        "type": "debug",
+        "z": "c314a73a5e96f198",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 500,
+        "y": 340,
+        "wires": []
+    },
+    {
+        "id": "3a9f88b583a3b541",
+        "type": "mqtt out",
+        "z": "c314a73a5e96f198",
+        "d": true,
+        "name": "",
+        "topic": "test/value",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "4a05d9677cfeadd8",
+        "x": 600,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "470a7ceec879f0a8",
+        "type": "mqtt in",
+        "z": "c314a73a5e96f198",
+        "d": true,
+        "name": "",
+        "topic": "test/value",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4a05d9677cfeadd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 180,
+        "y": 260,
+        "wires": [
+            [
+                "d56fba44b2872846"
+            ]
+        ]
+    },
+    {
+        "id": "dd5358f016d2c569",
+        "type": "function",
+        "z": "c314a73a5e96f198",
+        "name": "function 7",
+        "func": "flow.set(\"value\", msg.payload);\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 180,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "c2e874cfb0643d5b",
+        "type": "function",
+        "z": "c314a73a5e96f198",
+        "name": "function 8",
+        "func": "const value = flow.get(\"value\") ?? 0;\nmsg.payload = value;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 300,
+        "y": 380,
+        "wires": [
+            [
+                "d56fba44b2872846"
+            ]
+        ]
+    },
+    {
+        "id": "7fd24a2bf6613cbb",
+        "type": "inject",
+        "z": "0222bdc0e7912998",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 140,
+        "wires": [
+            [
+                "87d4c4598cc2e535"
+            ]
+        ]
+    },
+    {
+        "id": "87d4c4598cc2e535",
+        "type": "function",
+        "z": "0222bdc0e7912998",
+        "name": "function 9",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 380,
+        "y": 140,
+        "wires": [
+            [
+                "2db473b67089a744",
+                "8828c9b66fff9b0a",
+                "ca1b235909f58c23"
+            ]
+        ]
+    },
+    {
+        "id": "2db473b67089a744",
+        "type": "debug",
+        "z": "0222bdc0e7912998",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 600,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "8828c9b66fff9b0a",
+        "type": "ui_gauge",
+        "z": "0222bdc0e7912998",
+        "name": "",
+        "group": "6b0a127f7637ab3c",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 610,
+        "y": 60,
+        "wires": []
+    },
+    {
+        "id": "ca1b235909f58c23",
+        "type": "switch",
+        "z": "0222bdc0e7912998",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "0.5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 450,
+        "y": 280,
+        "wires": [
+            [
+                "1a39b7da7a54f927"
+            ]
+        ]
+    },
+    {
+        "id": "1a39b7da7a54f927",
+        "type": "function",
+        "z": "0222bdc0e7912998",
+        "name": "function 10",
+        "func": "const curCounter = flow.get(\"counter\") ?? 0;\nflow.set(\"counter\", curCounter + 1);\nmsg.payload = curCounter + 1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 630,
+        "y": 280,
+        "wires": [
+            [
+                "d6838861c191b54c"
+            ]
+        ]
+    },
+    {
+        "id": "d6838861c191b54c",
+        "type": "ui_text",
+        "z": "0222bdc0e7912998",
+        "group": "6b0a127f7637ab3c",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Counter",
+        "format": "{{msg.payload}}",
+        "layout": "row-spread",
+        "className": "",
+        "style": false,
+        "font": "",
+        "fontSize": 16,
+        "color": "#000000",
+        "x": 820,
+        "y": 240,
+        "wires": []
+    },
+    {
+        "id": "50a169cbe84acebc",
+        "type": "ui_button",
+        "z": "0222bdc0e7912998",
+        "name": "",
+        "group": "6b0a127f7637ab3c",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 430,
+        "y": 380,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "8608c9dfa2c7d320",
+        "type": "change",
+        "z": "0222bdc0e7912998",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 600,
+        "y": 380,
+        "wires": [
+            []
         ]
     }
 ]

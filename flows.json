@@ -56,6 +56,30 @@
         "env": []
     },
     {
+        "id": "339ba613130686b9",
+        "type": "tab",
+        "label": "Counter",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f9b45d552e43d415",
+        "type": "tab",
+        "label": "Turn on/off",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "716d722657cad949",
+        "type": "tab",
+        "label": "ETC",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "0d89bdc714438385",
         "type": "ui_base",
         "theme": {
@@ -1649,6 +1673,7 @@
         "id": "8bf560e1a549da3a",
         "type": "ui_text",
         "z": "5d2efabbb070416a",
+        "d": true,
         "group": "484ef1fdaf6546a0",
         "order": 0,
         "width": 0,
@@ -1742,6 +1767,728 @@
         "wires": [
             [
                 "8bf560e1a549da3a"
+            ]
+        ]
+    },
+    {
+        "id": "43726a6c062d6078",
+        "type": "inject",
+        "z": "339ba613130686b9",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 130,
+        "y": 60,
+        "wires": [
+            [
+                "ca8263512d7bda94"
+            ]
+        ]
+    },
+    {
+        "id": "ca8263512d7bda94",
+        "type": "function",
+        "z": "339ba613130686b9",
+        "name": "Gen Random Number",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 240,
+        "y": 140,
+        "wires": [
+            [
+                "8c87d0eae8be3f1f",
+                "084c872ddcac3aa7"
+            ]
+        ]
+    },
+    {
+        "id": "8c87d0eae8be3f1f",
+        "type": "ui_gauge",
+        "z": "339ba613130686b9",
+        "d": true,
+        "name": "",
+        "group": "484ef1fdaf6546a0",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 510,
+        "y": 100,
+        "wires": []
+    },
+    {
+        "id": "084c872ddcac3aa7",
+        "type": "switch",
+        "z": "339ba613130686b9",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "0.5",
+                "vt": "num"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 1,
+        "x": 470,
+        "y": 200,
+        "wires": [
+            [
+                "22e9f924422ea263"
+            ]
+        ]
+    },
+    {
+        "id": "22e9f924422ea263",
+        "type": "function",
+        "z": "339ba613130686b9",
+        "name": "function 7",
+        "func": "const curCounter = flow.get(\"counter\") ?? 0;\nflow.set(\"counter\", curCounter + 1);\nmsg.payload = curCounter + 1;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 620,
+        "y": 200,
+        "wires": [
+            [
+                "f25e390948eb3f0d"
+            ]
+        ]
+    },
+    {
+        "id": "f25e390948eb3f0d",
+        "type": "ui_text",
+        "z": "339ba613130686b9",
+        "d": true,
+        "group": "484ef1fdaf6546a0",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "name": "",
+        "label": "Counter",
+        "format": "{{msg.payload}}",
+        "layout": "row-left",
+        "className": "",
+        "style": true,
+        "font": "",
+        "fontSize": 16,
+        "color": "#aa278e",
+        "x": 800,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "de5396897077856f",
+        "type": "ui_button",
+        "z": "339ba613130686b9",
+        "d": true,
+        "name": "",
+        "group": "484ef1fdaf6546a0",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Reset Counter",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "",
+        "className": "",
+        "icon": "",
+        "payload": "",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 220,
+        "y": 320,
+        "wires": [
+            [
+                "b0d547a817cb666e"
+            ]
+        ]
+    },
+    {
+        "id": "b0d547a817cb666e",
+        "type": "change",
+        "z": "339ba613130686b9",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "counter",
+                "pt": "flow",
+                "to": "0",
+                "tot": "num"
+            },
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 320,
+        "wires": [
+            [
+                "f25e390948eb3f0d"
+            ]
+        ]
+    },
+    {
+        "id": "da6f10d7b72f6710",
+        "type": "inject",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 150,
+        "y": 120,
+        "wires": [
+            [
+                "48cc903bd2d1b185"
+            ]
+        ]
+    },
+    {
+        "id": "48cc903bd2d1b185",
+        "type": "function",
+        "z": "f9b45d552e43d415",
+        "name": "Gen Value",
+        "func": "msg.payload = Math.random();\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 350,
+        "y": 120,
+        "wires": [
+            [
+                "631b7e641262afb9"
+            ]
+        ]
+    },
+    {
+        "id": "9b2976187274cfe9",
+        "type": "ui_gauge",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "group": "484ef1fdaf6546a0",
+        "order": 4,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "1",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 690,
+        "y": 120,
+        "wires": []
+    },
+    {
+        "id": "e9c9ea9de20828d4",
+        "type": "ui_button",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "group": "484ef1fdaf6546a0",
+        "order": 5,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "On",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "green",
+        "className": "",
+        "icon": "",
+        "payload": "ON",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 280,
+        "wires": [
+            [
+                "52067b287d46db3c"
+            ]
+        ]
+    },
+    {
+        "id": "5badb8cc14207340",
+        "type": "ui_button",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "group": "484ef1fdaf6546a0",
+        "order": 6,
+        "width": 0,
+        "height": 0,
+        "passthru": false,
+        "label": "Off",
+        "tooltip": "",
+        "color": "",
+        "bgcolor": "red",
+        "className": "",
+        "icon": "",
+        "payload": "OFF",
+        "payloadType": "str",
+        "topic": "topic",
+        "topicType": "msg",
+        "x": 170,
+        "y": 340,
+        "wires": [
+            [
+                "52067b287d46db3c",
+                "1155e00d3a4d0847"
+            ]
+        ]
+    },
+    {
+        "id": "52067b287d46db3c",
+        "type": "change",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "status",
+                "pt": "flow",
+                "to": "payload",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 300,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "631b7e641262afb9",
+        "type": "function",
+        "z": "f9b45d552e43d415",
+        "name": "Turn On/Off",
+        "func": "const status = flow.get(\"status\") ?? \"OFF\";\nif (status === \"ON\") {\n  return msg;\n} else {\n  // Do nothing\n}",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 530,
+        "y": 120,
+        "wires": [
+            [
+                "9b2976187274cfe9"
+            ]
+        ]
+    },
+    {
+        "id": "1155e00d3a4d0847",
+        "type": "change",
+        "z": "f9b45d552e43d415",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "0",
+                "tot": "num"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 400,
+        "y": 380,
+        "wires": [
+            [
+                "9b2976187274cfe9"
+            ]
+        ]
+    },
+    {
+        "id": "046b7ce0efd953ae",
+        "type": "inject",
+        "z": "716d722657cad949",
+        "d": true,
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "1",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 170,
+        "y": 80,
+        "wires": [
+            [
+                "38118de6a01223d6"
+            ]
+        ]
+    },
+    {
+        "id": "38118de6a01223d6",
+        "type": "function",
+        "z": "716d722657cad949",
+        "name": "Gen Random",
+        "func": "msg.payload = Math.random()\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 150,
+        "y": 200,
+        "wires": [
+            [
+                "90801a77b08907a2"
+            ]
+        ]
+    },
+    {
+        "id": "0fa8ae31430d6a8a",
+        "type": "debug",
+        "z": "716d722657cad949",
+        "name": "debug 6",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 960,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "90801a77b08907a2",
+        "type": "switch",
+        "z": "716d722657cad949",
+        "name": "",
+        "property": "payload",
+        "propertyType": "msg",
+        "rules": [
+            {
+                "t": "gte",
+                "v": "0.8",
+                "vt": "num"
+            },
+            {
+                "t": "else"
+            }
+        ],
+        "checkall": "true",
+        "repair": false,
+        "outputs": 2,
+        "x": 310,
+        "y": 200,
+        "wires": [
+            [
+                "c86e5895589f691e"
+            ],
+            [
+                "3198dfe787609221"
+            ]
+        ]
+    },
+    {
+        "id": "c86e5895589f691e",
+        "type": "change",
+        "z": "716d722657cad949",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "High",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 160,
+        "wires": [
+            [
+                "b05d26e9713a211a"
+            ]
+        ]
+    },
+    {
+        "id": "3198dfe787609221",
+        "type": "change",
+        "z": "716d722657cad949",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Low",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 560,
+        "y": 240,
+        "wires": [
+            [
+                "b05d26e9713a211a"
+            ]
+        ]
+    },
+    {
+        "id": "b05d26e9713a211a",
+        "type": "template",
+        "z": "716d722657cad949",
+        "name": "",
+        "field": "payload",
+        "fieldType": "msg",
+        "format": "handlebars",
+        "syntax": "mustache",
+        "template": "Sending message: {{payload}} !",
+        "output": "str",
+        "x": 540,
+        "y": 380,
+        "wires": [
+            [
+                "d6a2d2f7d3999d7e"
+            ]
+        ]
+    },
+    {
+        "id": "d6a2d2f7d3999d7e",
+        "type": "rbe",
+        "z": "716d722657cad949",
+        "name": "",
+        "func": "rbe",
+        "gap": "",
+        "start": "",
+        "inout": "out",
+        "septopics": true,
+        "property": "payload",
+        "topi": "topic",
+        "x": 770,
+        "y": 360,
+        "wires": [
+            [
+                "0fa8ae31430d6a8a"
+            ]
+        ]
+    },
+    {
+        "id": "6e4ead5ffb335cac",
+        "type": "inject",
+        "z": "716d722657cad949",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 240,
+        "y": 600,
+        "wires": [
+            [
+                "0652ccb2d604111c"
+            ]
+        ]
+    },
+    {
+        "id": "0652ccb2d604111c",
+        "type": "delay",
+        "z": "716d722657cad949",
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 600,
+        "wires": [
+            [
+                "07e1ec42457f21a1",
+                "942cc063819ba4c4"
+            ]
+        ]
+    },
+    {
+        "id": "07e1ec42457f21a1",
+        "type": "debug",
+        "z": "716d722657cad949",
+        "name": "debug 7",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 600,
+        "wires": []
+    },
+    {
+        "id": "51bb073aa802910b",
+        "type": "complete",
+        "z": "716d722657cad949",
+        "d": true,
+        "name": "",
+        "scope": [
+            "0652ccb2d604111c"
+        ],
+        "uncaught": false,
+        "x": 230,
+        "y": 800,
+        "wires": [
+            [
+                "942cc063819ba4c4"
+            ]
+        ]
+    },
+    {
+        "id": "942cc063819ba4c4",
+        "type": "change",
+        "z": "716d722657cad949",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "Complete Trigger",
+                "tot": "str"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 440,
+        "y": 760,
+        "wires": [
+            [
+                "07e1ec42457f21a1"
             ]
         ]
     }

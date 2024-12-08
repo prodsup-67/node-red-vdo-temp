@@ -80,6 +80,14 @@
         "env": []
     },
     {
+        "id": "e42c2f568adff1e6",
+        "type": "tab",
+        "label": "IoT Sensor",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "0d89bdc714438385",
         "type": "ui_base",
         "theme": {
@@ -181,7 +189,7 @@
         "type": "ui_tab",
         "name": "Home",
         "icon": "dashboard",
-        "order": 2,
+        "order": 3,
         "disabled": false,
         "hidden": false
     },
@@ -201,7 +209,7 @@
         "type": "ui_tab",
         "name": "Control",
         "icon": "dashboard",
-        "order": 3,
+        "order": 4,
         "disabled": false,
         "hidden": false
     },
@@ -297,13 +305,29 @@
         "type": "ui_tab",
         "name": "Tab 3",
         "icon": "dashboard",
-        "order": 1
+        "order": 2
     },
     {
         "id": "484ef1fdaf6546a0",
         "type": "ui_group",
         "name": "Group 1",
         "tab": "986b2765be7f6419",
+        "order": 1,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "f7ddb504d43882b5",
+        "type": "ui_tab",
+        "name": "Tab 4",
+        "icon": "dashboard",
+        "order": 1
+    },
+    {
+        "id": "844441360979d51a",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "f7ddb504d43882b5",
         "order": 1,
         "disp": true,
         "width": 6
@@ -2457,8 +2481,8 @@
             "0652ccb2d604111c"
         ],
         "uncaught": false,
-        "x": 150,
-        "y": 840,
+        "x": 230,
+        "y": 800,
         "wires": [
             [
                 "942cc063819ba4c4"
@@ -2491,5 +2515,137 @@
                 "07e1ec42457f21a1"
             ]
         ]
+    },
+    {
+        "id": "6fd33a8b6fcd0059",
+        "type": "mqtt in",
+        "z": "e42c2f568adff1e6",
+        "name": "",
+        "topic": "testESP/Temperature",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4a05d9677cfeadd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 360,
+        "y": 140,
+        "wires": [
+            [
+                "0df750bf65c5ed3e",
+                "6fa599a961524020"
+            ]
+        ]
+    },
+    {
+        "id": "4c6217b96b970130",
+        "type": "mqtt in",
+        "z": "e42c2f568adff1e6",
+        "name": "",
+        "topic": "testESP/Humidity",
+        "qos": "2",
+        "datatype": "auto-detect",
+        "broker": "4a05d9677cfeadd8",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 340,
+        "y": 240,
+        "wires": [
+            [
+                "0df750bf65c5ed3e",
+                "a8f836fecdcbd3b1"
+            ]
+        ]
+    },
+    {
+        "id": "0df750bf65c5ed3e",
+        "type": "debug",
+        "z": "e42c2f568adff1e6",
+        "name": "debug 8",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 680,
+        "y": 180,
+        "wires": []
+    },
+    {
+        "id": "6fa599a961524020",
+        "type": "ui_chart",
+        "z": "e42c2f568adff1e6",
+        "name": "",
+        "group": "844441360979d51a",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "chart",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "",
+        "ymax": "",
+        "removeOlder": 1,
+        "removeOlderPoints": "",
+        "removeOlderUnit": "3600",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 670,
+        "y": 80,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "a8f836fecdcbd3b1",
+        "type": "ui_gauge",
+        "z": "e42c2f568adff1e6",
+        "name": "",
+        "group": "844441360979d51a",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "gauge",
+        "label": "units",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "100",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 670,
+        "y": 240,
+        "wires": []
     }
 ]

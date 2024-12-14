@@ -706,5 +706,85 @@
                 "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-cloud-firestore\\src\\Write\\Write.js"
             }
         }
+    },
+    "node-red-contrib-image-tools": {
+        "name": "node-red-contrib-image-tools",
+        "version": "2.1.1",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "jimp": {
+                "name": "jimp",
+                "types": [
+                    "jimp-image"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-image-tools\\jimp.js"
+            },
+            "xzingDecode": {
+                "name": "xzingDecode",
+                "types": [
+                    "Barcode Decoder"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-image-tools\\xzingDecode.js"
+            },
+            "barcodeWriter": {
+                "name": "barcodeWriter",
+                "types": [
+                    "Barcode Generator"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-image-tools\\barcodeWriter.js"
+            },
+            "imageViewer": {
+                "name": "imageViewer",
+                "types": [
+                    "image viewer"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-image-tools\\imageViewer.js"
+            },
+            "app": {
+                "name": "app",
+                "types": [],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-contrib-image-tools",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-contrib-image-tools\\app.js"
+            }
+        }
+    },
+    "node-red-node-ui-webcam": {
+        "name": "node-red-node-ui-webcam",
+        "version": "0.4.0",
+        "local": true,
+        "user": true,
+        "nodes": {
+            "ui_webcam": {
+                "name": "ui_webcam",
+                "types": [
+                    "ui_webcam"
+                ],
+                "enabled": true,
+                "local": true,
+                "user": false,
+                "module": "node-red-node-ui-webcam",
+                "file": "C:\\Users\\nnnpo\\Coding\\prodsup\\node-red-vdo-temp\\node_modules\\node-red-node-ui-webcam\\ui_webcam.js"
+            }
+        }
     }
 }

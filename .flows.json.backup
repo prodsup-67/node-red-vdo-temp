@@ -96,6 +96,14 @@
         "env": []
     },
     {
+        "id": "c9b7fc0892db3842",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c712bb54ba961aa4",
         "type": "group",
         "z": "56db586c2f5513cc",
@@ -3060,7 +3068,8 @@
         "y": 580,
         "wires": [
             [
-                "24ed44d481eb622d"
+                "24ed44d481eb622d",
+                "7cc3a9435155f761"
             ]
         ]
     },
@@ -3128,8 +3137,8 @@
         "font": "",
         "fontSize": 16,
         "color": "#000000",
-        "x": 630,
-        "y": 680,
+        "x": 690,
+        "y": 660,
         "wires": []
     },
     {
@@ -3227,6 +3236,153 @@
         "wires": [
             [
                 "aa4a4c9270729f7c"
+            ]
+        ]
+    },
+    {
+        "id": "7cc3a9435155f761",
+        "type": "function",
+        "z": "56db586c2f5513cc",
+        "name": "Loading",
+        "func": "const html = `<center>Loading...</center>`;\nmsg.payload = html;\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 440,
+        "y": 580,
+        "wires": [
+            [
+                "218721ad78f52e0c",
+                "0d199835e19ad99b"
+            ]
+        ]
+    },
+    {
+        "id": "895b43eaa531d237",
+        "type": "trigger",
+        "z": "c9b7fc0892db3842",
+        "name": "",
+        "op1": "SEND1",
+        "op2": "SEND2",
+        "op1type": "str",
+        "op2type": "str",
+        "duration": "-3",
+        "extend": false,
+        "overrideDelay": false,
+        "units": "s",
+        "reset": "",
+        "bytopic": "all",
+        "topic": "topic",
+        "outputs": 1,
+        "x": 480,
+        "y": 220,
+        "wires": [
+            [
+                "bf7660b1618fccbc"
+            ]
+        ]
+    },
+    {
+        "id": "3d45fad92058e9f6",
+        "type": "inject",
+        "z": "c9b7fc0892db3842",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 220,
+        "wires": [
+            [
+                "895b43eaa531d237",
+                "44ffd88ea1858ca5"
+            ]
+        ]
+    },
+    {
+        "id": "bf7660b1618fccbc",
+        "type": "debug",
+        "z": "c9b7fc0892db3842",
+        "name": "debug 10",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 220,
+        "wires": []
+    },
+    {
+        "id": "44ffd88ea1858ca5",
+        "type": "delay",
+        "z": "c9b7fc0892db3842",
+        "d": true,
+        "name": "",
+        "pauseType": "delay",
+        "timeout": "3",
+        "timeoutUnits": "seconds",
+        "rate": "1",
+        "nbRateUnits": "1",
+        "rateUnits": "second",
+        "randomFirst": "1",
+        "randomLast": "5",
+        "randomUnits": "seconds",
+        "drop": false,
+        "allowrate": false,
+        "outputs": 1,
+        "x": 460,
+        "y": 320,
+        "wires": [
+            [
+                "bf7660b1618fccbc"
+            ]
+        ]
+    },
+    {
+        "id": "072a895474011a9a",
+        "type": "inject",
+        "z": "c9b7fc0892db3842",
+        "name": "",
+        "props": [
+            {
+                "p": "reset",
+                "v": "true",
+                "vt": "bool"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "x": 190,
+        "y": 140,
+        "wires": [
+            [
+                "895b43eaa531d237"
             ]
         ]
     }

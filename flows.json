@@ -112,6 +112,14 @@
         "env": []
     },
     {
+        "id": "e2f563ce6f549df7",
+        "type": "tab",
+        "label": "Flow 2",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
         "id": "c712bb54ba961aa4",
         "type": "group",
         "z": "56db586c2f5513cc",
@@ -3642,5 +3650,108 @@
         "wires": [
             []
         ]
+    },
+    {
+        "id": "47830de74e0cf4f2",
+        "type": "inject",
+        "z": "e2f563ce6f549df7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "TA",
+        "payload": "A",
+        "payloadType": "str",
+        "x": 190,
+        "y": 160,
+        "wires": [
+            [
+                "d0f4e79951f360c4"
+            ]
+        ]
+    },
+    {
+        "id": "37f44966a5d7b489",
+        "type": "inject",
+        "z": "e2f563ce6f549df7",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "TB",
+        "payload": "B",
+        "payloadType": "str",
+        "x": 190,
+        "y": 240,
+        "wires": [
+            [
+                "d0f4e79951f360c4"
+            ]
+        ]
+    },
+    {
+        "id": "d0f4e79951f360c4",
+        "type": "join",
+        "z": "e2f563ce6f549df7",
+        "name": "",
+        "mode": "custom",
+        "build": "object",
+        "property": "payload",
+        "propertyType": "msg",
+        "key": "topic",
+        "joiner": "\\n",
+        "joinerType": "str",
+        "useparts": false,
+        "accumulate": true,
+        "timeout": "",
+        "count": "2",
+        "reduceRight": false,
+        "reduceExp": "",
+        "reduceInit": "",
+        "reduceInitType": "",
+        "reduceFixup": "",
+        "x": 430,
+        "y": 200,
+        "wires": [
+            [
+                "0a7484cf5170f6dc"
+            ]
+        ]
+    },
+    {
+        "id": "0a7484cf5170f6dc",
+        "type": "debug",
+        "z": "e2f563ce6f549df7",
+        "name": "debug 11",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "false",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 700,
+        "y": 200,
+        "wires": []
     }
 ]
